@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexis Ivan M. De Sola | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Libre+Franklin:wght@700;800&family=DM+Sans:wght@400;500;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-left: #f2f2f2;
+            --bg-right: #ffffff;
+            --text-main: #1a1a1a;
+            --text-muted: #555555;
+            --accent: #000000;
+            --border-color: #d1d1d1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #e0e0e0;
+            min-height: 100vh;
+            display: block;
+        }
+
+        .resume-container {
+            width: 100%;
+            max-width: 1000px;
+            background: var(--bg-right);
+            display: flex;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+            margin: 60px auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Left Column */
+        .left-col {
+            flex: 0 0 380px;
+            background-color: var(--bg-left);
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+        }
+
+        .profile-container {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            border: 1px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .profile-container::after {
+            content: '';
+            position: absolute;
+            width: calc(100% + 15px);
+            height: calc(100% + 15px);
+            border: 1px solid #ccc;
+            border-radius: 50%;
+        }
+
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #fff;
+        }
+
+        .info-section {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .name-tag {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: var(--text-main);
+        }
+
+        .name-tag span {
+            font-weight: 700;
+        }
+
+        .job-title {
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            margin-bottom: 35px;
+            text-transform: uppercase;
+            border-bottom: 1px solid transparent;
+        }
+
+        .contact-item {
+            margin-bottom: 12px;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        .contact-label {
+            font-weight: 400;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1.5px;
+            background-color: #333;
+            margin: 30px 0;
+        }
+
+        .skills-section {
+            width: 100%;
+        }
+
+        .skills-title {
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .skills-list li {
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .skills-list li::before {
+            content: '- ';
+            margin-right: 12px;
+        }
+
+        /* Right Column */
+        .right-col {
+            flex: 1;
+            padding: 80px 50px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            color: var(--text-main);
+        }
+
+        .about-text {
+            color: var(--text-main);
+            line-height: 1.5;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .hobbies-section {
+            margin-top: 20px;
+        }
+
+        .hobbies-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .hobbies-list {
+            list-style: none;
+        }
+
+        .hobbies-list li {
+            margin-bottom: 12px;
+            color: var(--text-main);
+            font-size: 1.1rem;
+        }
+
+        .right-divider {
+            width: 100%;
+            height: 1.5px;
+            background-color: #333;
+            margin: 40px 0;
+        }
+
+        /* Nav & Footer Styles */
+        .logo {
+            font-family: 'Fugaz One', cursive;
+            font-size: 20px;
+            letter-spacing: 0.02em;
+            color: #000;
+        }
+
+        .header {
+            width: 100%;
+            background: #fff;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 0 32px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            transition: opacity 0.2s;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .nav-links a:hover,
+        .header-icon:hover {
+            opacity: 0.6;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f2f2f2;
+            border-radius: 6px;
+            padding: 7px 14px;
+            width: 220px;
+        }
+
+        .search-bar input {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            flex: 1;
+            border: none;
+            outline: none;
+            background: none;
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .header-icon {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: all 0.2s ease;
+        }
+
+        button[aria-label="Menu"], 
+        button[aria-label="Menu"] .header-icon {
+            cursor: default;
+        }
+
+        button[aria-label="Menu"] .header-icon:hover {
+            opacity: 0.7;
+        }
+
+        .footer {
+            background: #1a1a1a;
+            padding: 72px 48px 48px;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 48px;
+            color: #fff;
+            margin-top: 60px;
+        }
+
+        .footer-col-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .email-form {
+            display: flex;
+            align-items: center;
+            border: 1px solid #555;
+            border-radius: 28px;
+            padding: 10px 16px;
+            margin-bottom: 28px;
+        }
+
+        .email-form input {
+            flex: 1;
+            font-size: 14px;
+            color: #aaa;
+            background: none;
+            border: none;
+            outline: none;
+        }
+
+        .email-send-btn {
+            width: 32px;
+            height: 32px;
+            background: #1a6bb5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .email-send-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .social-icons-container {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon-wrap {
+            width: 44px;
+            height: 44px;
+            background: transparent;
+            border: 1px solid #555;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon-wrap img {
+            width: 28px;
+            height: 28px;
+            filter: grayscale(100%);
+            opacity: 0.6;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-link {
+            font-size: 14px;
+            font-weight: 500;
+            color: #aaa;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+            .resume-container {
+                flex-direction: column;
+                margin-top: 20px;
+            }
+            .left-col {
+                flex: none;
+                width: 100%;
+            }
+            .right-col {
+                padding: 40px;
+            }
+            .footer {
+                grid-template-columns: 1fr;
+                padding: 48px 24px;
+                gap: 32px;
+            }
+            .header {
+                padding: 0 16px;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <span class="logo">ZYNTRX</span>
+
+        <div class="search-bar">
+            <input type="search" placeholder="SEARCH" aria-label="Search">
+            <img src="../assets/search.jpg" alt="" width="16" height="16">
+        </div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../homepage/zyntrx.html">HOME</a></li>
+                <li><a href="../SHOPS/menSHOP.html">SHOP</a></li>
+                <li><a href="./aboutUs.html">ABOUT</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-icons">
+            <a href="#" aria-label="Cart">
+                <img src="../assets/cart.png" alt="" class="header-icon">
+            </a>
+            <a href="#" aria-label="Account">
+                <img src="../assets/person.png" alt="" class="header-icon">
+            </a>
+            <button aria-label="Menu">
+                <img src="../assets/menu.png" alt="" class="header-icon">
+            </button>
+        </div>
+    </header>
+
+    <div class="resume-container">
+        <!-- Left Side -->
+        <aside class="left-col">
+            <div class="profile-container">
+                <img src="../assets/picivan.jpg" alt="Alexis Ivan M. De Sola" class="profile-img">
+            </div>
+
+            <div class="info-section">
+                <p class="name-tag">Name: <span>Alexis Ivan M. De Sola</span></p>
+                <h2 class="job-title">INFORMATION TECHNOLOGY STUDENT</h2>
+
+                <div class="contact-info">
+                    <p class="contact-item">Phone: 09707717432</p>
+                    <p class="contact-item">Email: desolaivan702@gmail.com</p>
+                    <p class="contact-item">Address: Dagupan City Pangasinan</p>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="skills-section">
+                    <h3 class="skills-title">SKILLS</h3>
+                    <ul class="skills-list">
+                        <li>Basic Computer Skills</li>
+                        <li>Basic HTML & CSS</li>
+                        <li>Graphic Design (Canva, Photoshop)</li>
+                        <li>Internet & Research</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Side -->
+        <main class="right-col">
+            <section class="about-me">
+                <h1 class="section-title">ABOUT ME</h1>
+                <p class="about-text">
+                    I am an aspiring Information Technology student with a strong passion for technology, web
+                    development, and digital innovation. I have a deep interest in creating websites and systems that
+                    are not only visually appealing but also functional, clean, and user-friendly.
+                </p>
+                <p class="about-text">
+                    I believe that learning is a continuous process, especially in the field of IT. Even though I
+                    encounter challenges and difficulties in understanding complex codes and structures, I never give
+                    up. I always do my best to study, analyze, and practice until I fully grasp the concept. I am still
+                    honing my skills in HTML, CSS, and web design, and I am eager to learn more programming languages
+                    and technologies in the future.
+                </p>
+                <p class="about-text">
+                    I am a hardworking, patient, and dedicated individual who is willing to go the extra mile to improve
+                    my craft. My goal is to use my knowledge and skills to contribute meaningful solutions and to become
+                    a competent professional in the IT industry.
+                </p>
+            </section>
+
+            <div class="right-divider"></div>
+
+            <section class="hobbies-section">
+                <h3 class="hobbies-title">Hobbies</h3>
+                <ul class="hobbies-list">
+                    <li>Learning new programming languages</li>
+                    <li>Exploring new software and tools</li>
+                    <li>Watching tech tutorials and educational videos</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div>
+            <h4 class="footer-col-title">EMAIL US</h4>
+            <div class="email-form">
+                <input type="email" placeholder="Your Email Address" aria-label="Email address">
+                <div class="email-send-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                </div>
+            </div>
+            <div class="social-icons-container">
+                <div class="social-icon-wrap">
+                    <img src="../assets/facebook.png" alt="Facebook">
+                </div>
+                <div class="social-icon-wrap">
+                    <img src="../assets/tik-tok.png" alt="Tiktok">
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h4 class="footer-col-title">SERVICES</h4>
+            <ul class="footer-links">
+                <li><a href="#" class="footer-link">Shoe Repair</a></li>
+                <li><a href="#" class="footer-link">Gift Wrap</a></li>
+                <li><a href="#" class="footer-link">Easy Returns</a></li>
+                <li><a href="#" class="footer-link">Size Guide</a></li>
+                <li><a href="#" class="footer-link">Free Shipping</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="footer-col-title">ABOUT</h4>
+            <ul class="footer-links">
+                <li><a href="#" class="footer-link">Why Choose Us</a></li>
+                <li><a href="#" class="footer-link">Our Mission</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="footer-col-title">HELP</h4>
+            <ul class="footer-links">
+                <li><a href="#" class="footer-link">FAQs</a></li>
+                <li><a href="#" class="footer-link">Live Chat</a></li>
+                <li><a href="#" class="footer-link">Call Us</a></li>
+                <li><a href="#" class="footer-link">help@ZYNTRX.com</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html>

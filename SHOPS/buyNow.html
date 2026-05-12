@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy Now – ZYNTRX</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Libre+Franklin:ital,wght@0,700;0,800;1,700;1,800&family=DM+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="buyNOW.css">
+
+  <script type="module" async
+    src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fecostepfo3283back.builtwithrocket.new&_be=https%3A%2F%2Fappanalytics.rocket.new&_v=0.1.18"></script>
+  <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="../homepage/zyntrx.html" class="logo">ZYNTRX</a>
+
+    <div class="search-bar">
+      <input type="search" placeholder="SEARCH" aria-label="Search">
+      <img src="../assets/search.svg" alt="" width="16" height="16">
+    </div>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../homepage/zyntrx.html">HOME</a></li>
+        <li><a href="./menSHOP.html">SHOP</a></li>
+        <li><a href="../PORTFOLIO/aboutUs.html">ABOUT</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-icons">
+      <a href="#" aria-label="Cart">
+        <img src="../assets/cart.svg" alt="" class="header-icon">
+      </a>
+      <a href="#" aria-label="Account">
+        <img src="../assets/user.svg" alt="" class="header-icon">
+      </a>
+      <button aria-label="Menu">
+        <img src="../assets/menu.svg" alt="" class="header-icon">
+      </button>
+    </div>
+  </header>
+
+  <!-- BUY NOW PAGE -->
+  <main class="buy-now-page">
+    <!-- Order Form -->
+    <div class="order-form">
+      <div class="checkout-container">
+        <!-- Left: Form Fields -->
+        <div class="form-left">
+          <h2 class="order-title">COMPLETE YOUR ORDER</h2>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-input" placeholder="Aedam Marcus">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name</label>
+              <input type="text" class="form-input" placeholder="Solis">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" placeholder="aedam@example.com">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Shipping Address</label>
+            <input type="text" class="form-input" placeholder="Complete address">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Payment Method</label>
+            <select class="form-input" id="paymentMethodSelect">
+              <option value="cash">Cash on Delivery</option>
+              <option value="ewallet">E-Wallet</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="ewalletField" style="display: none;">
+            <label class="form-label">E-Wallet Account / Phone Number</label>
+            <input type="text" class="form-input" placeholder="e.g. 0912 345 6789">
+          </div>
+        </div>
+
+        <!-- Right: Order Summary -->
+        <div class="order-summary">
+          <p class="summary-title">ORDER SUMMARY</p>
+          <!-- Will be populated by JS -->
+        </div>
+      </div>
+
+      <!-- Bottom: Actions -->
+      <div class="checkout-actions">
+        <button class="confirm-btn">CONFIRM ORDER</button>
+        <a href="./menSHOP.html" class="back-link">← Back to Shop</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- SUCCESS MODAL -->
+  <div id="successModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-icon">✔</div>
+      <h3 class="modal-title">Order Successful!</h3>
+      <p class="modal-text">Thank you for shopping with ZYNTRX. Your order is being processed.</p>
+      <button class="modal-btn" onclick="location.href='../homepage/zyntrx.html'">Return to Home</button>
+    </div>
+  </div>
+  <script>
+    const ewalletField = document.getElementById('ewalletField');
+    const paymentMethodSelect = document.getElementById('paymentMethodSelect');
+    const confirmBtn = document.querySelector('.confirm-btn');
+    const successModal = document.getElementById('successModal');
+
+    paymentMethodSelect.addEventListener('change', () => {
+      ewalletField.style.display = paymentMethodSelect.value === 'ewallet' ? 'block' : 'none';
+    });
+
+    confirmBtn.addEventListener('click', () => {
+      successModal.classList.add('active');
+      localStorage.removeItem('zyntrx_cart'); // Clear cart after order
+    });
+
+    // Dynamic Order Summary
+    const summaryList = document.querySelector('.order-summary');
+    const urlParams = new URLSearchParams(window.location.search);
+    const prodImg = urlParams.get('img');
+    const prodName = urlParams.get('name') ? urlParams.get('name').replace(/\n/g, ' ') : null; // Handle newlines from innerText
+    const prodQty = urlParams.get('qty') || 1;
+
+    let cart = JSON.parse(localStorage.getItem('zyntrx_cart')) || [];
+
+    // If it's a direct "Buy Now", prioritize the URL item
+    if (prodName && prodImg) {
+      cart = [{
+        name: prodName,
+        image: prodImg,
+        quantity: parseInt(prodQty),
+        price: 129.00
+      }];
+    }
+
+    function renderCheckoutSummary() {
+      if (!summaryList) return;
+
+      const title = summaryList.querySelector('.summary-title');
+      summaryList.innerHTML = '';
+      if (title) summaryList.appendChild(title);
+
+      let total = 0;
+
+      if (cart.length === 0) {
+        summaryList.innerHTML += '<p style="padding: 20px; color: #666;">No items found.</p>';
+        return;
+      }
+
+      cart.forEach(item => {
+        const itemPrice = 129.00;
+        const itemTotal = itemPrice * item.quantity;
+        total += itemTotal;
+
+        const row = document.createElement('div');
+        row.className = 'summary-row';
+        row.style.alignItems = 'center';
+        row.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <img src="${item.image}" style="width: 64px; height: 64px; object-fit: contain; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" onerror="this.src='../assets/products/groundforce.png'">
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-weight: 800; font-size: 16px; font-family: 'Libre Franklin', sans-serif; font-style: italic; text-transform: uppercase;">${item.name}</span>
+              <span style="font-size: 14px; font-weight: 600; color: #666;">QTY: ${item.quantity}</span>
+            </div>
+          </div>
+          <span style="font-weight: 800; font-size: 18px;">$${itemTotal.toFixed(2)}</span>
+        `;
+        summaryList.appendChild(row);
+      });
+
+      // Shipping
+      const shippingRow = document.createElement('div');
+      shippingRow.className = 'summary-row';
+      shippingRow.innerHTML = `<span>Shipping</span><span>Free</span>`;
+      summaryList.appendChild(shippingRow);
+
+      // Total
+      const totalRow = document.createElement('div');
+      totalRow.className = 'summary-row total';
+      totalRow.innerHTML = `<span>Total</span><span id="buyNowTotal">$${total.toFixed(2)}</span>`;
+      summaryList.appendChild(totalRow);
+
+      // Update main image to first item (Removed as per user request)
+    }
+
+    renderCheckoutSummary();
+  </script>
+</body>
+
+</html>

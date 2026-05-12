@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ground Force – ZYNTRX</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Libre+Franklin:ital,wght@0,700;0,800;1,700;1,800&family=DM+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: #d9d9d9;
+      color: #000;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 0 32px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .logo {
+      font-family: 'Fugaz One', cursive;
+      font-size: 22px;
+      letter-spacing: 0.05em;
+      color: #000;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      transition: all 0.3s ease;
+      padding: 8px 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: #000;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      letter-spacing: 0.15em;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f2f2f2;
+      border-radius: 6px;
+      padding: 6px 12px;
+      width: 180px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .search-bar input {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+    }
+
+    .search-bar img {
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    .search-bar:hover img {
+      opacity: 1;
+    }
+
+    .header-icons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-icon {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: all 0.2s ease;
+    }
+
+    .header-icon:hover {
+      transform: translateY(-2px);
+      opacity: 1;
+      filter: grayscale(0%);
+    }
+
+    button[aria-label="Menu"] {
+      cursor: pointer;
+      background: none;
+      border: none;
+      outline: none;
+      display: flex;
+      align-items: center;
+    }
+
+    /* ── BACK BUTTON ── */
+    .back-to-shop {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #555;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+      margin-bottom: 24px;
+      transition: color 0.2s;
+      grid-column: 1 / -1;
+      /* Span full width across grid */
+    }
+
+    .back-to-shop:hover {
+      color: #000;
+    }
+
+    .back-to-shop svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ── PRODUCT LAYOUT ── */
+    .product-page {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* ── PRODUCT IMAGE ── */
+    .product-image-wrap {
+      overflow: visible;
+      /* Allow drop-shadow to show outside */
+      aspect-ratio: 1 / 1.1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+      /* This blends the white/light-gray background of the image into the page background */
+      mix-blend-mode: multiply;
+      /* Adding a shadow to the shoe itself instead of the box */
+      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+    }
+
+    /* ── PRODUCT INFO ── */
+    .product-info {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    #productName.product-name {
+      font-family: 'Fugaz One', cursive !important;
+      font-size: clamp(48px, 6vw, 84px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: #000;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-top: 10px;
+    }
+
+    .product-price {
+      font-family: 'Fugaz One', cursive;
+      font-size: 32px;
+      color: #000;
+      letter-spacing: 0.05em;
+      margin-top: -20px;
+    }
+
+    /* ── SIZES ── */
+    .sizes-label {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: #888;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .sizes-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .size-btn {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #000;
+      padding: 16px 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .size-btn:hover,
+    .size-btn.active {
+      background: #000;
+      color: #fff;
+      border-color: #000;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ── QUANTITY ── */
+    .quantity-row {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .qty-label {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: #888;
+      text-transform: uppercase;
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      width: fit-content;
+      padding: 6px;
+      gap: 15px;
+    }
+
+    .qty-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #000;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .qty-btn:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .qty-value {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      min-width: 30px;
+      text-align: center;
+    }
+
+    /* ── ACTION BUTTONS ── */
+    .action-buttons {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .btn-add-cart {
+      flex: 1;
+      background: #fff;
+      color: #000;
+      padding: 22px 32px;
+      border-radius: 16px;
+      border: 2px solid #000;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-buy-now {
+      flex: 1;
+      background: #fff;
+      color: #000;
+      padding: 22px 32px;
+      border-radius: 16px;
+      border: 2px solid #000;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-add-cart:hover,
+    .btn-buy-now:hover {
+      background: #000;
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ── CART SIDEBAR ── */
+    .cart-sidebar {
+      position: fixed;
+      top: 0;
+      right: -450px;
+      width: 450px;
+      height: 100%;
+      background: #fff;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+      z-index: 2000;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      padding: 40px;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .cart-sidebar.active {
+      right: 0;
+      visibility: visible;
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 1999;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      border-bottom: 2px solid #000;
+      padding-bottom: 20px;
+    }
+
+    .cart-header h2 {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      font-style: italic;
+      letter-spacing: -0.02em;
+    }
+
+    .close-cart {
+      font-size: 36px;
+      cursor: pointer;
+      line-height: 1;
+      transition: transform 0.2s;
+    }
+
+    .close-cart:hover {
+      transform: rotate(90deg);
+    }
+
+    .cart-items-list {
+      flex: 1;
+      overflow-y: auto;
+      margin-bottom: 30px;
+      padding-right: 10px;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      gap: 20px;
+      margin-bottom: 30px;
+      align-items: center;
+    }
+
+    .cart-item img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 12px;
+      padding: 8px;
+    }
+
+    .cart-item-details h4 {
+      font-family: 'Fugaz One', cursive;
+      font-size: 16px;
+      font-weight: normal;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .cart-item-details p {
+      font-size: 13px;
+      color: #666;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .cart-item-price {
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .cart-footer {
+      border-top: 1px solid #eee;
+      padding-top: 30px;
+    }
+
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .cart-total-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #888;
+    }
+
+    .cart-total-value {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      font-style: italic;
+    }
+
+    .checkout-btn-main {
+      width: 100%;
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 20px;
+      border-radius: 12px;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      font-style: italic;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .checkout-btn-main:hover {
+      background: #c0392b;
+      transform: translateY(-2px);
+    }
+
+    .cart-empty-msg {
+      text-align: center;
+      color: #888;
+      font-style: italic;
+      margin-top: 50px;
+    }
+
+    /* ── RESPONSIVENESS ── */
+    @media (max-width: 1024px) {
+      .product-page {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin: 20px auto;
+      }
+
+      .product-info {
+        gap: 30px;
+      }
+
+      #productName.product-name {
+        font-size: 60px;
+        text-align: center;
+      }
+
+      .product-price {
+        text-align: center;
+      }
+
+      .sizes-label,
+      .qty-label {
+        text-align: center;
+      }
+
+      .qty-controls {
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        padding: 0 16px;
+      }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        flex-direction: column;
+        padding: 24px;
+        gap: 16px;
+        border-bottom: 1px solid #eee;
+        z-index: 1000;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .search-bar {
+        display: none;
+      }
+    }
+
+    /* ── SIDE MENU OVERLAY ── */
+    .nav-links.active {
+      display: flex !important;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 320px;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 100px 40px;
+      gap: 32px;
+      box-shadow: -20px 0 50px rgba(0, 0, 0, 0.1);
+      z-index: 2000;
+      transform: translateX(0);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      border-left: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-links.active li a {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #000;
+    }
+
+    .nav-links.active li {
+      list-style: none;
+    }
+
+    .product-page {
+      padding: 0 20px;
+    }
+
+    #productName.product-name {
+      font-size: 44px;
+    }
+
+    .sizes-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .action-buttons {
+      flex-direction: column;
+    }
+
+    .cart-sidebar {
+      width: 100%;
+      padding: 24px;
+    }
+
+
+    @media (max-width: 480px) {
+      .sizes-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+
+  <script type="module" async
+    src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fecostepfo3283back.builtwithrocket.new&_be=https%3A%2F%2Fappanalytics.rocket.new&_v=0.1.18"></script>
+  <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
+</head>
+
+<body>
+
+  <header class="header">
+    <a href="../homepage/zyntrx.html" class="logo">ZYNTRX</a>
+
+    <div class="search-bar">
+      <input type="search" placeholder="SEARCH" aria-label="Search">
+      <img src="../assets/search.svg" alt="" width="16" height="16">
+    </div>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../homepage/zyntrx.html">HOME</a></li>
+        <li><a href="./menSHOP.html">SHOP</a></li>
+        <li><a href="../PORTFOLIO/aboutUs.html">ABOUT</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-icons">
+      <a href="javascript:void(0)" id="cartIcon" aria-label="Cart">
+        <img src="../assets/cart.svg" alt="" class="header-icon">
+      </a>
+      <a href="#" aria-label="Account">
+        <img src="../assets/user.svg" alt="" class="header-icon">
+      </a>
+      <button id="menuToggle" aria-label="Menu">
+        <img src="../assets/menu.svg" alt="" class="header-icon">
+      </button>
+    </div>
+  </header>
+
+  <!-- PRODUCT DETAIL -->
+  <main class="product-page">
+    <!-- Back Button -->
+    <button class="back-to-shop" onclick="history.length > 1 ? history.back() : location.href='./menSHOP.html'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      BACK TO SHOP
+    </button>
+    <!-- Product Image -->
+    <div class="product-image-wrap">
+      <img id="productImg" src="../assets/products/groundforce.png" alt="Ground Force sneaker">
+    </div>
+
+    <!-- Product Info -->
+    <div class="product-info">
+      <h1 class="product-name" id="productName">GROUND<br>FORCE</h1>
+      <div class="product-price" id="productPrice">$129.00</div>
+
+      <!-- Sizes -->
+      <div>
+        <p class="sizes-label">SIZES</p>
+        <div class="sizes-grid" id="sizesGrid">
+          <button class="size-btn" data-size="24">24</button>
+          <button class="size-btn" data-size="25">25</button>
+          <button class="size-btn" data-size="26">26</button>
+          <button class="size-btn" data-size="27">27</button>
+          <button class="size-btn" data-size="28">28</button>
+          <button class="size-btn" data-size="29">29</button>
+          <button class="size-btn" data-size="30">30</button>
+          <button class="size-btn" data-size="31">31</button>
+          <button class="size-btn" data-size="32">32</button>
+          <button class="size-btn" data-size="33">33</button>
+          <button class="size-btn" data-size="34">34</button>
+          <button class="size-btn" data-size="35">35</button>
+          <button class="size-btn" data-size="36">36</button>
+          <button class="size-btn" data-size="37">37</button>
+          <button class="size-btn" data-size="38">38</button>
+          <button class="size-btn" data-size="39">39</button>
+          <button class="size-btn" data-size="40">40</button>
+          <button class="size-btn" data-size="41">41</button>
+          <button class="size-btn" data-size="42">42</button>
+          <button class="size-btn" data-size="43">43</button>
+        </div>
+      </div>
+
+      <!-- Quantity -->
+      <div class="quantity-row">
+        <span class="qty-label">QUANTITY</span>
+        <div class="qty-controls">
+          <button class="qty-btn" id="qtyMinus">-</button>
+          <span class="qty-value" id="qtyValue">1</span>
+          <button class="qty-btn" id="qtyPlus">+</button>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="btn-add-cart" id="addToCartBtn">ADD TO CART</button>
+        <button class="btn-buy-now" id="buyNowBtn">BUY NOW</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- CART SIDEBAR -->
+  <div id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h2>YOUR CART</h2>
+      <div id="closeCart" class="close-cart">&times;</div>
+    </div>
+    <div id="cartItemsList" class="cart-items-list">
+      <!-- Items dynamically added here -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span class="cart-total-label">Subtotal</span>
+        <span id="cartSubtotal" class="cart-total-value">$0.00</span>
+      </div>
+      <button class="checkout-btn-main" onclick="location.href='./buyNow.html'">GO TO CHECKOUT</button>
+    </div>
+  </div>
+  <div id="cartOverlay" class="cart-overlay"></div>
+
+  <script src="../zyntrx.js"></script>
+  <script>
+    // Size selection
+    let selectedSize = null;
+    document.getElementById('sizesGrid').addEventListener('click', function (e) {
+      const btn = e.target.closest('.size-btn');
+      if (!btn) return;
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedSize = btn.getAttribute('data-size');
+    });
+
+    // Quantity control
+    let qty = 1;
+    const qtyValueSpan = document.getElementById('qtyValue');
+    document.getElementById('qtyMinus').addEventListener('click', function () {
+      if (qty > 1) { qty--; qtyValueSpan.textContent = qty; }
+    });
+    document.getElementById('qtyPlus').addEventListener('click', function () {
+      qty++;
+      qtyValueSpan.textContent = qty;
+    });
+
+    // CART LOGIC
+    const cartSidebar = document.getElementById('cartSidebar');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const cartItemsList = document.getElementById('cartItemsList');
+    const cartSubtotal = document.getElementById('cartSubtotal');
+    const addToCartBtn = document.getElementById('addToCartBtn');
+    const closeCart = document.getElementById('closeCart');
+    const cartIcon = document.getElementById('cartIcon');
+
+    let cart = JSON.parse(localStorage.getItem('zyntrx_cart')) || [];
+
+    function updateCartUI() {
+      cartItemsList.innerHTML = '';
+      let total = 0;
+
+      if (cart.length === 0) {
+        cartItemsList.innerHTML = '<p class="cart-empty-msg">Your cart is empty.</p>';
+      } else {
+        cart.forEach((item, index) => {
+          const itemPrice = 129.00; // Fixed price for demo
+          total += itemPrice * item.quantity;
+
+          const itemEl = document.createElement('div');
+          itemEl.className = 'cart-item';
+          itemEl.innerHTML = `
+            <img src="${item.image}" alt="${item.name}">
+            <div class="cart-item-details">
+              <h4>${item.name}</h4>
+              <p>Size: ${item.size} | Qty: ${item.quantity}</p>
+              <div class="cart-item-price">$${(itemPrice * item.quantity).toFixed(2)}</div>
+            </div>
+            <div style="cursor:pointer; color:#888;" onclick="removeItem(${index})">&times;</div>
+          `;
+          cartItemsList.appendChild(itemEl);
+        });
+      }
+      cartSubtotal.textContent = `$${total.toFixed(2)}`;
+      localStorage.setItem('zyntrx_cart', JSON.stringify(cart));
+    }
+
+    function toggleCart(show) {
+      if (show) {
+        cartSidebar.classList.add('active');
+        cartOverlay.classList.add('active');
+      } else {
+        cartSidebar.classList.remove('active');
+        cartOverlay.classList.remove('active');
+      }
+    }
+
+    window.removeItem = function (index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    };
+
+    addToCartBtn.addEventListener('click', () => {
+      if (!selectedSize) {
+        alert('Please select a size first!');
+        return;
+      }
+
+      const product = {
+        name: document.getElementById('productName').innerText.replace('\n', ' '),
+        image: document.getElementById('productImg').src,
+        size: selectedSize,
+        quantity: qty
+      };
+
+      cart.push(product);
+      updateCartUI();
+      toggleCart(true);
+    });
+
+    closeCart.addEventListener('click', () => toggleCart(false));
+    cartOverlay.addEventListener('click', () => toggleCart(false));
+    cartIcon.addEventListener('click', () => toggleCart(true));
+
+    // Initialize UI
+    updateCartUI();
+
+    // Auto-fill from URL params if needed (for seamless transition from shop)
+    const urlParams = new URLSearchParams(window.location.search);
+    const prodImg = urlParams.get('img');
+    const prodName = urlParams.get('name');
+
+    if (prodImg) document.getElementById('productImg').src = prodImg;
+    if (prodName) {
+      const nameEl = document.getElementById('productName');
+      nameEl.innerHTML = prodName.replace(' ', '<br>');
+      nameEl.style.color = '#000';
+    }
+
+    // Buy Now — pass product details to checkout page
+    document.getElementById('buyNowBtn').addEventListener('click', function () {
+      if (!selectedSize) {
+        alert('Please select a size first!');
+        return;
+      }
+      const currentImg = document.getElementById('productImg').src;
+      const currentName = document.getElementById('productName').innerText.replace(/\n/g, ' ');
+      const currentQty = qty;
+      const params = new URLSearchParams({
+        img: currentImg,
+        name: currentName,
+        qty: currentQty,
+        size: selectedSize,
+        price: '129.00'
+      });
+      location.href = './buyNow.html?' + params.toString();
+    });
+  </script>
+</body>
+
+</html>

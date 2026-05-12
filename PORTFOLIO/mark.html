@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZYNTRX | About Mark Angelo P. Grabillo</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Libre+Franklin:wght@300;400;500;700;800;900&family=DM+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Link to the main zyntrx.css for header and footer styles -->
+  <link rel="stylesheet" href="../homepage/zyntrx.css">
+
+  <style>
+    body {
+      background: #ECE9E2;
+    }
+
+    .about-me-title {
+      font-family: 'Libre Franklin', sans-serif;
+      font-weight: 400;
+      font-size: 32px;
+      text-align: center;
+      margin: 60px 0 30px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #333;
+    }
+
+    .mark-container {
+      max-width: 1000px;
+      margin: 0 auto 100px;
+      background: #d9d9d9;
+      /* The light gray background from the image */
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      min-height: 800px;
+      position: relative;
+    }
+
+    /* Vertical Separator Line */
+    .mark-container::after {
+      content: "";
+      position: absolute;
+      top: 10%;
+      bottom: 10%;
+      left: 35%;
+      width: 1px;
+      background: #999;
+    }
+
+    /* Left Column */
+    .left-section {
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .mark-portrait {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 30px;
+      border: 5px solid #fff;
+    }
+
+    .mark-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .info-group {
+      width: 100%;
+      text-align: left;
+      padding-left: 10px;
+    }
+
+    .info-item {
+      margin-bottom: 15px;
+      font-size: 15px;
+      color: #000;
+    }
+
+    .info-item span {
+      font-weight: 800;
+    }
+
+    .divider-line {
+      width: 100%;
+      height: 1px;
+      background: #999;
+      margin: 20px 0;
+    }
+
+    /* Right Column */
+    .right-section {
+      padding: 60px 60px 60px 80px;
+    }
+
+    .quote-box {
+      font-family: 'Libre Franklin', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 1.4;
+      margin-bottom: 30px;
+      color: #1a1a1a;
+      text-align: center;
+    }
+
+    .bio-content {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #222;
+      font-weight: 500;
+      margin-bottom: 40px;
+      text-align: justify;
+    }
+
+    .sub-header {
+      font-family: 'Libre Franklin', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 30px 0 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .list-content {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    .list-content li {
+      position: relative;
+      margin-bottom: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .list-content li::before {
+      content: "•";
+      position: absolute;
+      left: -20px;
+      font-weight: 900;
+    }
+
+    .learning-text {
+      font-weight: 400;
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* Footer reset */
+    .footer {
+      margin-top: 0 !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="../homepage/zyntrx.html" class="logo">ZYNTRX</a>
+    <div class="search-bar">
+      <input type="search" placeholder="SEARCH" aria-label="Search">
+      <img src="../assets/search.svg" alt="" width="16" height="16">
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../homepage/zyntrx.html">HOME</a></li>
+        <li><a href="../SHOPS/menSHOP.html">SHOP</a></li>
+        <li><a href="./aboutUs.html">ABOUT</a></li>
+      </ul>
+    </nav>
+    <div class="header-icons">
+      <a href="#" aria-label="Cart">
+        <img src="../assets/cart.svg" alt="" class="header-icon">
+      </a>
+      <a href="#" aria-label="Account">
+        <img src="../assets/user.svg" alt="" class="header-icon">
+      </a>
+      <button aria-label="Menu">
+        <img src="../assets/menu.svg" alt="" class="header-icon">
+      </button>
+    </div>
+  </header>
+
+  <h1 class="about-me-title">About Me</h1>
+
+  <div class="mark-container">
+    <!-- Left Section -->
+    <aside class="left-section">
+      <div class="mark-portrait">
+        <img src="../assets/mark.jpg" alt="Mark Angelo P. Grabillo">
+      </div>
+
+      <div class="info-group">
+        <p class="info-item"><span>Name:</span> Mark Angelo P. Grabillo</p>
+        <p class="info-item">Information Technology Student</p>
+
+        <div class="divider-line"></div>
+
+        <p class="info-item"><span>Email:</span> markangelograbillo@gmail.com</p>
+        <p class="info-item"><span>Phone:</span> 09469307505</p>
+        <p class="info-item"><span>Address:</span> Dagupan City Pangasinan</p>
+      </div>
+    </aside>
+
+    <!-- Right Section -->
+    <main class="right-section">
+      <div class="quote-box">
+        "I am aspiring Information Technology student, I love creating websites that are beautiful, clean and easy to
+        use"
+      </div>
+
+      <div class="bio-content">
+        I always try my best to understand codes even if they are difficult, Sometimes I find it hard to follow, but I
+        still keep trying until I fully understand or finish what I am doing. I am still learning all parts of coding,
+        from basic commands to complex structures, and I do my best to understand every detail even if it takes time, I
+        never give up because I really want to learn and master this skill,
+      </div>
+
+      <div class="divider-line"></div>
+
+      <h2 class="sub-header">Skills</h2>
+      <ul class="list-content">
+        <li>Basic HTML & CSS <span class="learning-text">( still learning)</span></li>
+        <li>Basic Web Design <span class="learning-text">( still learning)</span></li>
+        <li>Hardworking and patient</li>
+        <li>Willing to learn</li>
+      </ul>
+
+      <div class="divider-line"></div>
+
+      <h2 class="sub-header">Hobbies</h2>
+      <ul class="list-content">
+        <li>Designing portfolios</li>
+        <li>Learning how to code</li>
+        <li>Playing online games</li>
+        <li>Watching Reels</li>
+      </ul>
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <h4 class="footer-col-title">EMAIL US</h4>
+      <div class="email-form">
+        <input type="email" placeholder="Your Email Address" aria-label="Email address">
+        <div class="email-send-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </div>
+      </div>
+      <div class="social-icons-container">
+        <div class="social-icon-wrap">
+          <img src="../assets/facebook.png" alt="Facebook">
+        </div>
+        <div class="social-icon-wrap">
+          <img src="../assets/tik-tok.png" alt="Tiktok">
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="footer-col-title">SERVICES</h4>
+      <ul class="footer-links">
+        <li><a href="#" class="footer-link">Shoe Repair</a></li>
+        <li><a href="#" class="footer-link">Gift Wrap</a></li>
+        <li><a href="#" class="footer-link">Easy Returns</a></li>
+        <li><a href="#" class="footer-link">Size Guide</a></li>
+        <li><a href="#" class="footer-link">Free Shipping</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="footer-col-title">ABOUT</h4>
+      <ul class="footer-links">
+        <li><a href="#" class="footer-link">Why Choose Us</a></li>
+        <li><a href="#" class="footer-link">Our Mission</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="footer-col-title">HELP</h4>
+      <ul class="footer-links">
+        <li><a href="#" class="footer-link">FAQs</a></li>
+        <li><a href="#" class="footer-link">Live Chat</a></li>
+        <li><a href="#" class="footer-link">Call Us</a></li>
+        <li><a href="#" class="footer-link">help@ZYNTRX.com</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div id="cartSidebar" class="shop-cart-sidebar">
+    <div class="shop-cart-header">
+      <h2>YOUR CART</h2>
+      <div id="closeCart" class="shop-close-cart">&times;</div>
+    </div>
+    <div id="cartItemsList" class="shop-cart-items"></div>
+    <div class="shop-cart-footer">
+      <div class="shop-cart-total-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <button class="shop-checkout-btn" onclick="location.href='../SHOPS/buyNow.html'">GO TO CHECKOUT</button>
+    </div>
+  </div>
+  <div id="cartOverlay" class="shop-cart-overlay"></div>
+
+  <script src="../zyntrx.js"></script>
+  <script>
+    // Cart logic
+    const cartBtn = document.querySelector('[aria-label="Cart"]');
+    if (cartBtn) {
+      cartBtn.addEventListener('click', e => {
+        e.preventDefault();
+        toggleShopCart(true);
+      });
+    }
+
+    const cartSidebar = document.getElementById('cartSidebar');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const cartItemsList = document.getElementById('cartItemsList');
+    const cartSubtotalEl = document.getElementById('cartSubtotal');
+
+    function toggleShopCart(show) {
+      cartSidebar.classList.toggle('active', show);
+      cartOverlay.classList.toggle('active', show);
+    }
+
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem('zyntrx_cart')) || [];
+      cartItemsList.innerHTML = '';
+      let total = 0;
+      if (cart.length === 0) {
+        cartItemsList.innerHTML = '<p style="padding:20px;color:#888;font-size:14px;">Your cart is empty.</p>';
+      } else {
+        cart.forEach((item, i) => {
+          const price = 129.00 * item.quantity;
+          total += price;
+          const el = document.createElement('div');
+          el.style.cssText = 'display:grid;grid-template-columns:70px 1fr auto;gap:14px;align-items:center;margin-bottom:20px;';
+          el.innerHTML = `
+            <img src="${item.image}" style="width:70px;height:70px;object-fit:contain;background:#f5f5f5;border-radius:10px;padding:6px;" />
+            <div>
+              <div style="font-family:\'Fugaz One\',cursive;font-size:14px;text-transform:uppercase;">${item.name}</div>
+              <div style="font-size:12px;color:#888;margin-top:4px;">Size: ${item.size || '—'} | Qty: ${item.quantity}</div>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:15px;">$${price.toFixed(2)}</div>
+              <div style="cursor:pointer;color:#aaa;font-size:20px;text-align:right;" onclick="removeItem(${i})">&times;</div>
+            </div>`;
+          cartItemsList.appendChild(el);
+        });
+      }
+      cartSubtotalEl.textContent = '$' + total.toFixed(2);
+    }
+
+    function removeItem(i) {
+      const cart = JSON.parse(localStorage.getItem('zyntrx_cart')) || [];
+      cart.splice(i, 1);
+      localStorage.setItem('zyntrx_cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    document.getElementById('closeCart').addEventListener('click', () => toggleShopCart(false));
+    cartOverlay.addEventListener('click', () => toggleShopCart(false));
+
+    renderCart();
+  </script>
+</body>
+
+</html>

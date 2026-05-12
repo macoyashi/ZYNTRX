@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZYNTRX | Lani Macasieb Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Libre+Franklin:wght@300;400;500;700;800;900&family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+
+  <!-- Main zyntrx.css for header and footer consistency -->
+  <link rel="stylesheet" href="../homepage/zyntrx.css">
+
+  <style>
+    :root {
+      --lani-beige: #f5f1e8;
+      --lani-brown: #964b20;
+      --lani-dark-green: #1a3c31;
+      --lani-text: #333;
+    }
+
+    body {
+      background-color: var(--lani-beige);
+      color: var(--lani-text);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ── HERO SECTION ── */
+    .lani-hero {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .lm-logo-circle {
+      width: 80px;
+      height: 80px;
+      background: #7a4a3a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 32px;
+      margin-bottom: 80px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .lani-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(48px, 10vw, 120px);
+      font-weight: 400;
+      margin-bottom: 24px;
+      color: #1a1a1a;
+    }
+
+    .lani-hero p {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      margin-bottom: 80px;
+      color: #444;
+    }
+
+    .contact-me-link {
+      color: var(--lani-brown);
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    .contact-me-link:hover {
+      opacity: 0.7;
+    }
+
+    /* ── ABOUT SECTION ── */
+    .lani-about {
+      padding: 120px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-style: italic;
+      margin-bottom: 32px;
+      color: var(--lani-brown);
+    }
+
+    .about-text-content h2 span {
+      border: 1px solid var(--lani-brown);
+      padding: 5px 25px;
+      border-radius: 50px;
+      margin-right: 10px;
+      font-style: normal;
+    }
+
+    .about-text-content p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 24px;
+      max-width: 500px;
+    }
+
+    .about-image-arch {
+      width: 100%;
+      max-width: 450px;
+      aspect-ratio: 4 / 5;
+      background: #b22222;
+      /* Red background from image */
+      border-radius: 250px 250px 0 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .about-image-arch img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── BACKGROUND SECTION ── */
+    .lani-background {
+      padding: 100px 40px;
+      text-align: center;
+      background: #fff;
+    }
+
+    .section-title-large {
+      font-family: 'Playfair Display', serif;
+      font-size: 54px;
+      color: #6a7ba2;
+      /* Blue-gray from image */
+      margin-bottom: 80px;
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .edu-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .edu-logo {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 32px;
+      object-fit: contain;
+    }
+
+    .edu-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      margin-bottom: 16px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 12px;
+      width: 100%;
+    }
+
+    .edu-item p {
+      font-size: 14px;
+      color: #777;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    /* ── SKILLS SECTION ── */
+    .lani-skills {
+      padding: 120px 40px;
+      text-align: center;
+    }
+
+    .skills-title-wrap {
+      display: inline-block;
+      margin-bottom: 80px;
+      position: relative;
+    }
+
+    .skills-title-wrap h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 54px;
+      color: var(--lani-brown);
+    }
+
+    .skills-title-wrap .decorative-svg {
+      position: absolute;
+      bottom: -15px;
+      right: -20px;
+      width: 100px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .skill-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .skill-arch {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      background: #fff;
+      border-radius: 120px 120px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      padding: 30px;
+    }
+
+    .skill-arch img {
+      width: 80%;
+      height: auto;
+    }
+
+    .skill-card span {
+      font-weight: 700;
+      font-size: 16px;
+      color: #333;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+      width: 80%;
+    }
+
+    /* ── TESTIMONIALS SECTION ── */
+    .lani-testimonials {
+      background: var(--lani-dark-green);
+      color: #fff;
+      padding: 140px 40px;
+      text-align: center;
+    }
+
+    .lani-testimonials h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 54px;
+      margin-bottom: 60px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .lani-testimonials h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .testimonial-quote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 32px;
+      margin-bottom: 40px;
+      opacity: 0.9;
+    }
+
+    .testimonial-divider {
+      width: 120px;
+      height: 1px;
+      background: var(--lani-brown);
+      margin: 40px auto;
+    }
+
+    .testimonial-text {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 1.8;
+      opacity: 0.8;
+    }
+
+    /* ── FEATURES SECTION ── */
+    .lani-features {
+      padding: 120px 40px;
+      text-align: center;
+    }
+
+    .features-title-wrap {
+      display: inline-block;
+      margin-bottom: 100px;
+      position: relative;
+    }
+
+    .features-title-wrap h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 54px;
+      color: var(--lani-dark-green);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .feature-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 28px;
+      line-height: 1.4;
+      margin-bottom: 24px;
+      color: #333;
+      padding: 0 20px;
+    }
+
+    .feature-divider {
+      width: 100%;
+      height: 2px;
+      background: #e5e5e5;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .feature-divider::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60%;
+      height: 2px;
+      background: var(--lani-brown);
+    }
+
+    .feature-item p {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #777;
+    }
+
+    /* ── CONTACT CTA SECTION ── */
+    .lani-contact-cta {
+      background: var(--lani-brown);
+      color: #fff;
+      padding: 120px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+
+    .cta-big-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 6vw, 84px);
+      line-height: 1.2;
+      max-width: 1000px;
+    }
+
+    .cta-big-text span {
+      position: relative;
+      display: inline-block;
+    }
+
+    .cta-big-text span::after {
+      content: '';
+      position: absolute;
+      inset: -10px -20px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+    }
+
+    .contact-footer-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .social-handle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 32px;
+      margin-top: 40px;
+    }
+
+    .contact-details-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .detail-icon {
+      width: 50px;
+      height: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .detail-info label {
+      display: block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.7;
+      margin-bottom: 4px;
+    }
+
+    .detail-info span {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <span class="logo">ZYNTRX</span>
+    <div class="search-bar">
+      <input type="search" placeholder="SEARCH" aria-label="Search">
+      <img src="../assets/search.jpg" alt="" width="16" height="16">
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../homepage/zyntrx.html">HOME</a></li>
+        <li><a href="../SHOPS/menSHOP.html">SHOP</a></li>
+        <li><a href="./aboutUs.html">ABOUT</a></li>
+      </ul>
+    </nav>
+    <div class="header-icons">
+      <a href="javascript:void(0)" id="cartIcon" aria-label="Cart">
+        <img src="../assets/cart.png" alt="" class="header-icon">
+      </a>
+      <a href="#" aria-label="Account">
+        <img src="../assets/person.png" alt="" class="header-icon">
+      </a>
+      <button aria-label="Menu">
+        <img src="../assets/menu.png" alt="" class="header-icon">
+      </button>
+    </div>
+  </header>
+
+  <!-- 1. HERO -->
+  <section class="lani-hero">
+    <div class="lm-logo-circle">LM</div>
+    <h1>Hello, I am Lani!</h1>
+    <p>Information Technology Student</p>
+    <a href="#contact" class="contact-me-link">Contact me</a>
+  </section>
+
+  <!-- 2. ABOUT -->
+  <section class="lani-about">
+    <div class="about-text-content">
+      <h2><span>About</span> Lani Macasieb</h2>
+      <p>I am an Information Technology student with a strong passion for UI design and creating user-friendly digital
+        experiences. I enjoy combining creativity and technical skills to design interfaces that are not only visually
+        appealing but also easy to use.</p>
+      <p>I am continuously learning and developing my skills in design tools such as Figma and Canva, as well as
+        front-end technologies like HTML, CSS, and basic JavaScript. I pay close attention to detail, color balance,
+        layout, and user experience to ensure that every design I create is clean, modern, and effective.</p>
+      <p>As a student, I am eager to gain more experience, collaborate with others, and take on new challenges that will
+        help me grow as a UI designer. My goal is to create meaningful digital products that make technology more
+        accessible and enjoyable for everyone.</p>
+    </div>
+    <div class="about-image-arch">
+      <img src="../assets/macasieb1.jpg" alt="Lani Macasieb Portrait">
+    </div>
+  </section>
+
+  <!-- 3. BACKGROUND -->
+  <section class="lani-background">
+    <h2 class="section-title-large">Background</h2>
+    <div class="edu-grid">
+      <div class="edu-item">
+        <img src="../assets/SCHOOL.jpg" alt="Highschool Logo" class="edu-logo">
+        <h3>Highschool</h3>
+        <p>With Honors<br>TVL, 2024-2025</p>
+      </div>
+      <div class="edu-item">
+        <img src="../assets/UDD.jpg" alt="University Logo" class="edu-logo">
+        <h3>University</h3>
+        <p>1st Year College<br>S.Y. 2025-2026</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SKILLS -->
+  <section class="lani-skills">
+    <div class="skills-title-wrap">
+      <h2>Skills</h2>
+      <svg class="decorative-svg" viewBox="0 0 100 20" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M5 15 Q 25 5, 50 15 T 95 15" stroke-linecap="round" />
+      </svg>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-arch"><img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML Icon"></div>
+        <span>HTML</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-arch"><img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS Icon"></div>
+        <span>CSS</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-arch"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JS Icon"></div>
+        <span>JavaScript</span>
+      </div>
+      <div class="skill-card">
+        <div class="skill-arch"><img src="../assets/UI.jpg" alt="UI Design Icon">
+        </div>
+        <span>UI Design</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. TESTIMONIALS -->
+  <section class="lani-testimonials">
+    <h2>Client Testimonials</h2>
+    <div class="testimonial-quote">"A truly inspiring designer"</div>
+    <div class="testimonial-divider"></div>
+    <p class="testimonial-text">
+      Lani's grasp of digital art and ui designing is truly inspiring. You'll surely learn a lot of amazing stuff during
+      the project process with Lani.
+    </p>
+  </section>
+
+  <!-- 6. FEATURES -->
+  <section class="lani-features">
+    <div class="features-title-wrap">
+      <h2>Features</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item">
+        <h3>Meet Lani Macasieb, the UI designer behind your favorite brands</h3>
+        <div class="feature-divider"></div>
+        <p>Zine Weekly, 2026</p>
+      </div>
+      <div class="feature-item">
+        <h3>Lani Macasieb reflects on how design can change the world</h3>
+        <div class="feature-divider"></div>
+        <p>Creative Mag, 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. CONTACT CTA -->
+  <section id="contact" class="lani-contact-cta">
+    <div class="cta-big-text">
+      Reach out if you want to create impactful visual art <span>together.</span>
+    </div>
+    <div class="contact-footer-grid">
+      <div class="social-handle">@lanimacasieb</div>
+      <div class="contact-details-list">
+        <div class="contact-detail-item">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+          </div>
+          <div class="detail-info">
+            <label>PHONE</label>
+            <span>09129102427</span>
+          </div>
+        </div>
+        <div class="contact-detail-item">
+          <div class="detail-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+          </div>
+          <div class="detail-info">
+            <label>EMAIL</label>
+            <span>LaniM1@gmail.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <h4 class="footer-col-title">EMAIL US</h4>
+      <div class="email-form">
+        <input type="email" placeholder="Your Email Address" aria-label="Email address">
+        <div class="email-send-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </div>
+      </div>
+      <div class="social-icons-container">
+        <div class="social-icon-wrap">
+          <img src="../assets/facebook.png" alt="Facebook">
+        </div>
+        <div class="social-icon-wrap">
+          <img src="../assets/tik-tok.png" alt="Tiktok">
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="footer-col-title">SERVICES</h4>
+      <ul class="footer-links">
+        <li><a href="#" class="footer-link">Shoe Repair</a></li>
+        <li><a href="#" class="footer-link">Gift Wrap</a></li>
+        <li><a href="#" class="footer-link">Easy Returns</a></li>
+        <li><a href="#" class="footer-link">Size Guide</a></li>
+        <li><a href="#" class="footer-link">Free Shipping</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="footer-col-title">ABOUT</h4>
+      <ul class="footer-links">
+        <li><a href="#" class="footer-link">Why Choose Us</a></li>
+        <li><a href="#" class="footer-link">Our Mission</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="footer-col-title">HELP</h4>
+      <ul class="footer-links">
+        <li><a href="#" class="footer-link">FAQs</a></li>
+        <li><a href="#" class="footer-link">Live Chat</a></li>
+        <li><a href="#" class="footer-link">Call Us</a></li>
+        <li><a href="#" class="footer-link">help@ZYNTRX.com</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div id="cartSidebar" class="shop-cart-sidebar">
+    <div class="shop-cart-header">
+      <h2>YOUR CART</h2>
+      <div id="closeCart" class="shop-close-cart">&times;</div>
+    </div>
+    <div id="cartItemsList" class="shop-cart-items"></div>
+    <div class="shop-cart-footer">
+      <div class="shop-cart-total-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <button class="shop-checkout-btn" onclick="location.href='../SHOPS/buyNow.html'">GO TO CHECKOUT</button>
+    </div>
+  </div>
+  <div id="cartOverlay" class="shop-cart-overlay"></div>
+
+  <script src="../zyntrx.js"></script>
+</body>
+
+</html>

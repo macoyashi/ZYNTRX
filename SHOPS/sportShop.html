@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZYNTRX | Sport Shop</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Libre+Franklin:ital,wght@0,700;0,800;1,700;1,800&family=DM+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../homepage/zyntrx.css">
+  <link rel="stylesheet" href="menshop.css">
+
+  <script type="module" async
+    src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fecostepfo3283back.builtwithrocket.new&_be=https%3A%2F%2Fappanalytics.rocket.new&_v=0.1.18"></script>
+  <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2"></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="../homepage/zyntrx.html" class="logo">ZYNTRX</a>
+
+    <div class="search-bar">
+      <input type="search" placeholder="SEARCH" aria-label="Search">
+      <img src="../assets/search.svg" alt="" width="16" height="16">
+    </div>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../homepage/zyntrx.html">HOME</a></li>
+        <li><a href="./menSHOP.html" class="active">SHOP</a></li>
+        <li><a href="../PORTFOLIO/aboutUs.html">ABOUT</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-icons">
+      <a href="#" aria-label="Cart">
+        <img src="../assets/cart.svg" alt="" class="header-icon">
+      </a>
+      <a href="#" aria-label="Account">
+        <img src="../assets/user.svg" alt="" class="header-icon">
+      </a>
+      <button aria-label="Menu">
+        <img src="../assets/menu.svg" alt="" class="header-icon">
+      </button>
+    </div>
+  </header>
+
+  <!-- SHOP HERO BANNER -->
+  <section class="shop-hero">
+    <img src="../assets/sport1.jpg" alt="Sport Collection">
+    <h2>PERFORMANCE WITHOUT LIMITS</h2>
+  </section>
+
+  <!-- FILTER TABS -->
+  <div class="filter-bar">
+    <button class="filter-tab" data-filter="men" onclick="location.href='./menSHOP.html'">MEN</button>
+    <button class="filter-tab" data-filter="women" onclick="location.href='./womenShop.html'">WOMEN</button>
+    <button class="filter-tab active" data-filter="sport" onclick="switchTab(this, 'sport')">SPORT</button>
+  </div>
+
+  <!-- FEATURED CAROUSEL 1 -->
+  <section class="hero-carousel featured-carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/zap.png" alt="Zap Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/Y2K.png" alt="Y2K Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/uni.png" alt="Uni Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/ten.png" alt="Ten Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/shock.png" alt="Shock Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/pro.png" alt="Pro Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/null.png" alt="Null Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/max.png" alt="Max Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/light.png" alt="Light Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button class="carousel-control prev" aria-label="Previous Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button class="carousel-control next" aria-label="Next Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </section>
+
+  <!-- FEATURED CAROUSEL 2 -->
+  <section class="hero-carousel featured-carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/cyc.png" alt="Cyc Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/hollow.png" alt="Hollow Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/base.png" alt="Base Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/hike.png" alt="Hike Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/anti.png" alt="Anti Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/gym.png" alt="Gym Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/yin&yang.png" alt="Yin & Yang Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/ace.png" alt="Ace Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="product-card">
+          <img src="../assets/products/hecate.png" alt="Hecate Force">
+          <div class="product-price-overlay"><span class="price-text">$129.00</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button class="carousel-control prev" aria-label="Previous Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button class="carousel-control next" aria-label="Next Slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </section>
+
+  <!-- FEATURE CARDS -->
+  <section class="feature-section">
+    <article class="feature-card">
+      <h3 class="feature-title">Built Beyond Limits</h3>
+      <p class="feature-desc">From reinforced stitching to resilient soles, our shoes are made to withstand real-world
+        wear without losing comfort or style.</p>
+    </article>
+    <article class="feature-card">
+      <h3 class="feature-title">Crafted From Better Choices</h3>
+      <p class="feature-desc">We prioritize materials that feel good on your feet and perform in real life—soft where it
+        matters, strong where it counts.</p>
+    </article>
+    <article class="feature-card">
+      <h3 class="feature-title">Comfort That Moves With You</h3>
+      <p class="feature-desc">Built with responsive cushioning and lightweight support, our shoes adapt to every step.
+        Soft, flexible, and made for all-day wear—so you never have to slow down.</p>
+    </article>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <h4 class="footer-col-title">EMAIL US</h4>
+      <div class="email-form">
+        <input type="email" placeholder="Your Email Address" aria-label="Email address">
+        <div class="email-send-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </div>
+      </div>
+      <div class="social-icons-container">
+        <div class="social-icon-wrap">
+          <img src="../assets/facebook.png" alt="Facebook">
+        </div>
+        <div class="social-icon-wrap">
+          <img src="../assets/tik-tok.png" alt="Tiktok">
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="footer-col-title">SERVICES</h4>
+      <ul class="footer-links">
+        <li><a href="#" class="footer-link">Shoe Repair</a></li>
+        <li><a href="#" class="footer-link">Gift Wrap</a></li>
+        <li><a href="#" class="footer-link">Easy Returns</a></li>
+        <li><a href="#" class="footer-link">Size Guide</a></li>
+        <li><a href="#" class="footer-link">Free Shipping</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="footer-col-title">ABOUT</h4>
+      <ul class="footer-links">
+        <li><a href="#" class="footer-link">Why Choose Us</a></li>
+        <li><a href="#" class="footer-link">Our Mission</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="footer-col-title">HELP</h4>
+      <ul class="footer-links">
+        <li><a href="#" class="footer-link">FAQs</a></li>
+        <li><a href="#" class="footer-link">Live Chat</a></li>
+        <li><a href="#" class="footer-link">Call Us</a></li>
+        <li><a href="#" class="footer-link">help@ZYNTRX.com</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div id="cartSidebar" class="shop-cart-sidebar">
+    <div class="shop-cart-header">
+      <h2>YOUR CART</h2>
+      <div id="closeCart" class="shop-close-cart">&times;</div>
+    </div>
+    <div id="cartItemsList" class="shop-cart-items"></div>
+    <div class="shop-cart-footer">
+      <div class="shop-cart-total-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <button class="shop-checkout-btn" onclick="location.href='./buyNow.html'">GO TO CHECKOUT</button>
+    </div>
+  </div>
+  <div id="cartOverlay" class="shop-cart-overlay"></div>
+
+  <script src="../zyntrx.js"></script>
+  <script>
+    // Universal cart and page logic handled by zyntrx.js
+  </script>
+
+</body>
+
+</html>

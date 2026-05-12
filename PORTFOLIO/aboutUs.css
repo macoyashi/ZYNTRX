@@ -1,0 +1,152 @@
+/* ABOUT US SPECIFIC STYLES */
+/* (Header, Footer, and Cart are now handled centrally by zyntrx.css) */
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 16px;
+  width: 100%;
+  max-width: 1458px;
+  margin: 0 auto;
+}
+
+/* Hero Section */
+.shop-hero {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shop-hero img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.shop-hero h2 {
+  position: relative;
+  z-index: 2;
+  font-family: 'Fugaz One', cursive;
+  font-size: 42px;
+  color: #fff;
+  letter-spacing: 0.1em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  padding: 0 20px;
+  text-transform: uppercase;
+}
+
+/* Content Sections */
+.better-choices-section {
+  padding: 48px 32px;
+  width: 100%;
+}
+
+.choices-text {
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.choices-title {
+  font-family: 'Fugaz One', cursive;
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.choices-description {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Team Grid */
+.team-images {
+  padding: 80px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  align-items: center;
+}
+
+.team-row {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.team-image {
+  width: 280px;
+  height: 320px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.team-image:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* ── RESPONSIVENESS ── */
+
+@media (max-width: 768px) {
+  .shop-hero {
+    height: 200px;
+  }
+
+  .shop-hero h2 {
+    font-size: 28px;
+  }
+
+  .better-choices-section {
+    padding: 32px 16px;
+  }
+
+  .choices-text {
+    padding: 24px;
+  }
+
+  .choices-title {
+    font-size: 18px;
+  }
+
+  .choices-description {
+    font-size: 14px;
+  }
+
+  .team-images {
+    padding: 40px 16px;
+    gap: 40px;
+  }
+
+  .team-row {
+    gap: 30px;
+  }
+
+  .team-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+}

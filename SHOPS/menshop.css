@@ -1,0 +1,277 @@
+/* SHOP SPECIFIC STYLES */
+/* (Base Reset, Header, Footer, and Cart are now handled centrally by zyntrx.css) */
+
+body {
+  background-color: #ECE9E2;
+}
+
+/* ── SHOP HERO BANNER ── */
+.shop-hero {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shop-hero img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.shop-hero h2 {
+  position: relative;
+  z-index: 2;
+  font-family: 'Fugaz One', cursive;
+  font-size: 42px;
+  color: #fff;
+  letter-spacing: 0.1em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* ── FEATURED CAROUSEL ── */
+.featured-carousel {
+  height: clamp(400px, 70vh, 600px);
+  background: #fdfdfd;
+  border-radius: 30px;
+  margin: 40px 32px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.featured-carousel .carousel-inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featured-carousel .carousel-item {
+  position: relative;
+  flex: 0 0 33.333%;
+  width: 33.333%;
+  height: 100%;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+  transform: none !important;
+}
+
+@media (max-width: 768px) {
+  .featured-carousel .carousel-item {
+    flex: 0 0 100%;
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+
+.featured-carousel .product-card {
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 1;
+  padding: 5px; /* Reduced padding to make the image fill more of the card */
+}
+
+/* ── FILTER BAR ── */
+.filter-bar {
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px 0;
+  position: sticky;
+  top: 60px;
+  z-index: 90;
+}
+
+.filter-tab {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: #888;
+  letter-spacing: 0.1em;
+  transition: color 0.3s, border-bottom 0.3s;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+}
+
+.filter-tab:hover,
+.filter-tab.active {
+  color: #000;
+  border-bottom-color: #000;
+}
+
+/* ── PRODUCT GRID ── */
+.product-grid-section {
+  max-width: 1400px;
+  margin: 40px auto 80px;
+  padding: 0 32px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.product-card {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  aspect-ratio: 1 / 1.1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.12));
+}
+
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+.product-price-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 24px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.product-card:hover .product-price-overlay {
+  opacity: 1;
+}
+
+/* Always show price in carousels */
+.featured-carousel .product-price-overlay {
+  opacity: 1;
+}
+
+.featured-carousel .price-text {
+  transform: translateY(0);
+}
+
+.price-text {
+  background: #000;
+  color: #fff;
+  font-family: 'Fugaz One', cursive;
+  font-size: 17px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .price-text {
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVENESS ── */
+
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .featured-carousel {
+    height: 500px;
+    margin: 32px 20px;
+  }
+
+  .shop-hero {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid-section {
+    padding: 0 20px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+
+  .filter-bar {
+    padding: 15px 10px;
+    gap: 10px;
+  }
+
+  .filter-tab {
+    padding: 8px 16px;
+    font-size: 11px;
+  }
+
+  .featured-carousel {
+    height: 450px;
+    margin: 24px 10px;
+    border-radius: 20px;
+  }
+
+  .featured-carousel .product-card {
+    max-width: 320px;
+  }
+
+  .carousel-control {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .carousel-control.prev { left: 10px; }
+  .carousel-control.next { right: 10px; }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .shop-hero h2 {
+    font-size: 28px;
+  }
+
+  .featured-carousel {
+    height: 400px;
+  }
+
+  .featured-carousel .product-card {
+    max-width: 260px;
+  }
+}

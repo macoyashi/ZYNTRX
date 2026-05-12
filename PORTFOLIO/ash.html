@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZYNTRX | About Ashley C. Tirao</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Libre+Franklin:wght@300;400;500;700;800;900&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Link to the main zyntrx.css for header and footer styles -->
+    <link rel="stylesheet" href="../homepage/zyntrx.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #fcfcfc;
+            color: #000;
+        }
+
+        /* Ash Specific Layout */
+        .ash-container {
+            max-width: 900px;
+            margin: 40px auto 100px;
+            background: #fff;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Top Identity Section (Gray background) */
+        .ash-identity {
+            background: #e0e0e0;
+            padding: 60px 80px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .identity-top-row {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 30px;
+        }
+
+        .ash-portrait-wrap {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .ash-portrait-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ash-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-line {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .contact-line img {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+        .ash-name-block {
+            text-align: left;
+        }
+
+        .ash-name {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 32px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .ash-role {
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+        }
+
+        /* Main Content */
+        .ash-content {
+            padding: 60px 80px;
+        }
+
+        .ash-hr {
+            border: none;
+            border-top: 1px solid #999;
+            margin: 0 0 60px;
+        }
+
+        .ash-section {
+            margin-bottom: 60px;
+        }
+
+        .ash-section-title {
+            font-family: 'Libre Franklin', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 24px;
+        }
+
+        .ash-section-title img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .ash-text {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #333;
+            text-align: justify;
+            font-weight: 500;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding-left: 5px;
+        }
+
+        .skills-list li {
+            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skills-list li::before {
+            content: "•";
+        }
+
+        /* Header & Footer Adjustment */
+        .footer {
+            margin-top: 0 !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <span class="logo">ZYNTRX</span>
+        <div class="search-bar">
+            <input type="search" placeholder="SEARCH" aria-label="Search">
+            <img src="../assets/search.jpg" alt="" width="16" height="16">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../homepage/zyntrx.html">HOME</a></li>
+                <li><a href="../SHOPS/menSHOP.html">SHOP</a></li>
+                <li><a href="./aboutUs.html">ABOUT</a></li>
+            </ul>
+        </nav>
+        <div class="header-icons">
+            <a href="#" aria-label="Cart">
+                <img src="../assets/cart.png" alt="" class="header-icon">
+            </a>
+            <a href="#" aria-label="Account">
+                <img src="../assets/person.png" alt="" class="header-icon">
+            </a>
+            <button aria-label="Menu" style="background:none; border:none;">
+                <img src="../assets/menu.png" alt="" class="header-icon">
+            </button>
+        </div>
+    </header>
+
+    <div class="ash-container">
+        <!-- Top Identity Area -->
+        <section class="ash-identity">
+            <div class="identity-top-row">
+                <div class="ash-portrait-wrap">
+                    <img src="../assets/ash.jpg" alt="Ashley C. Tirao">
+                </div>
+                <div class="ash-contact">
+                    <div class="contact-line">
+                        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
+                        tiraoashley979@gmail.com
+                    </div>
+                    <div class="contact-line">
+                        <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Phone">
+                        09946861042
+                    </div>
+                </div>
+            </div>
+            <div class="ash-name-block">
+                <h1 class="ash-name">ASHLEY C. TIRAO</h1>
+                <p class="ash-role">Information Technology Student</p>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <main class="ash-content">
+            <hr class="ash-hr">
+
+            <section class="ash-section">
+                <h2 class="ash-section-title">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4333/4333609.png" alt="About Icon">
+                    About Me
+                </h2>
+                <p class="ash-text">
+                    I am an 18-year-old student who is passionate about learning new skills, especially in technology
+                    and design. I enjoy exploring creative tools like Figma and other digital platforms that help me
+                    improve my ideas and projects. I am just starting to explore and develop my skills more in this
+                    field, and I am excited to learn new things along the way. I am a motivated and responsible person
+                    who always tries to do my best in every task given to me. I like working both individually and in a
+                    team because I believe I can learn a lot from different people. In the future, I aim to improve my
+                    skills in design and technology so I can use them in building a successful career. I am always open
+                    to learning new things and improving myself every day.
+                </p>
+            </section>
+
+            <section class="ash-section">
+                <h2 class="ash-section-title">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Skills Icon">
+                    Skills
+                </h2>
+                <ul class="skills-list">
+                    <li>UI/UX Design (Still learning)</li>
+                    <li>Figma (Still learning)</li>
+                    <li>HTML & CSS (Still learning)</li>
+                    <li>JavaScript (Still learning)</li>
+                </ul>
+            </section>
+
+            <section class="ash-section">
+                <h2 class="ash-section-title">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1063/1063376.png" alt="Role Icon">
+                    Role in the Project
+                </h2>
+                <p class="ash-text">
+                    My role in the project is to help in designing and creating the visual layout of our output. I focus
+                    on making the design clean, simple, and user-friendly using tools like Figma. I also contribute
+                    ideas to improve the overall look of the project.
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div>
+            <h4 class="footer-col-title">EMAIL US</h4>
+            <div class="email-form">
+                <input type="email" placeholder="Your Email Address" aria-label="Email address">
+                <div class="email-send-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                </div>
+            </div>
+            <div class="social-icons-container">
+                <div class="social-icon-wrap">
+                    <img src="../assets/facebook.png" alt="Facebook">
+                </div>
+                <div class="social-icon-wrap">
+                    <img src="../assets/tik-tok.png" alt="Tiktok">
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h4 class="footer-col-title">SERVICES</h4>
+            <ul class="footer-links">
+                <li><a href="#" class="footer-link">Shoe Repair</a></li>
+                <li><a href="#" class="footer-link">Gift Wrap</a></li>
+                <li><a href="#" class="footer-link">Easy Returns</a></li>
+                <li><a href="#" class="footer-link">Size Guide</a></li>
+                <li><a href="#" class="footer-link">Free Shipping</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="footer-col-title">ABOUT</h4>
+            <ul class="footer-links">
+                <li><a href="#" class="footer-link">Why Choose Us</a></li>
+                <li><a href="#" class="footer-link">Our Mission</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4 class="footer-col-title">HELP</h4>
+            <ul class="footer-links">
+                <li><a href="#" class="footer-link">FAQs</a></li>
+                <li><a href="#" class="footer-link">Live Chat</a></li>
+                <li><a href="#" class="footer-link">Call Us</a></li>
+                <li><a href="#" class="footer-link">help@ZYNTRX.com</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- CART SIDEBAR -->
+    <div id="cartSidebar" class="shop-cart-sidebar">
+        <div class="shop-cart-header">
+            <h2>YOUR CART</h2>
+            <div id="closeCart" class="shop-close-cart">&times;</div>
+        </div>
+        <div id="cartItemsList" class="shop-cart-items"></div>
+        <div class="shop-cart-footer">
+            <div class="shop-cart-total-row">
+                <span>Subtotal</span>
+                <span id="cartSubtotal">$0.00</span>
+            </div>
+            <button class="shop-checkout-btn" onclick="location.href='../SHOPS/buyNow.html'">GO TO CHECKOUT</button>
+        </div>
+    </div>
+    <div id="cartOverlay" class="shop-cart-overlay"></div>
+
+    <script src="../zyntrx.js"></script>
+    <script>
+        // Cart logic
+        const cartBtn = document.querySelector('[aria-label="Cart"]');
+        if (cartBtn) {
+            cartBtn.addEventListener('click', e => {
+                e.preventDefault();
+                toggleShopCart(true);
+            });
+        }
+
+        const cartSidebar = document.getElementById('cartSidebar');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const cartItemsList = document.getElementById('cartItemsList');
+        const cartSubtotalEl = document.getElementById('cartSubtotal');
+
+        function toggleShopCart(show) {
+            cartSidebar.classList.toggle('active', show);
+            cartOverlay.classList.toggle('active', show);
+        }
+
+        function renderCart() {
+            const cart = JSON.parse(localStorage.getItem('zyntrx_cart')) || [];
+            cartItemsList.innerHTML = '';
+            let total = 0;
+            if (cart.length === 0) {
+                cartItemsList.innerHTML = '<p style="padding:20px;color:#888;font-size:14px;">Your cart is empty.</p>';
+            } else {
+                cart.forEach((item, i) => {
+                    const price = 129.00 * item.quantity;
+                    total += price;
+                    const el = document.createElement('div');
+                    el.style.cssText = 'display:grid;grid-template-columns:70px 1fr auto;gap:14px;align-items:center;margin-bottom:20px;';
+                    el.innerHTML = `
+            <img src="${item.image}" style="width:70px;height:70px;object-fit:contain;background:#f5f5f5;border-radius:10px;padding:6px;" />
+            <div>
+              <div style="font-family:\'Fugaz One\',cursive;font-size:14px;text-transform:uppercase;">${item.name}</div>
+              <div style="font-size:12px;color:#888;margin-top:4px;">Size: ${item.size || '—'} | Qty: ${item.quantity}</div>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:15px;">$${price.toFixed(2)}</div>
+              <div style="cursor:pointer;color:#aaa;font-size:20px;text-align:right;" onclick="removeItem(${i})">&times;</div>
+            </div>`;
+                    cartItemsList.appendChild(el);
+                });
+            }
+            cartSubtotalEl.textContent = '$' + total.toFixed(2);
+        }
+
+        function removeItem(i) {
+            const cart = JSON.parse(localStorage.getItem('zyntrx_cart')) || [];
+            cart.splice(i, 1);
+            localStorage.setItem('zyntrx_cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        document.getElementById('closeCart').addEventListener('click', () => toggleShopCart(false));
+        cartOverlay.addEventListener('click', () => toggleShopCart(false));
+
+        renderCart();
+    </script>
+</body>
+
+</html>
